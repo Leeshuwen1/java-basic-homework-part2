@@ -86,7 +86,6 @@ public class Animal {
         int metrInSecond = distance / this.swimSpeedMS;
         System.out.println(name + " Время " + metrInSecond + " секунд " + " проплыл " + distance + " метров");
         int energy = distance / energyExpended;
-        //int power = distance / enduranceUE;
         if (energy <= enduranceUE) {
             System.out.println(name + " проплыл " + distance + " затратил энергии " + energy);
         } else {
