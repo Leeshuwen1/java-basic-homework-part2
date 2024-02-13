@@ -5,6 +5,11 @@ public class Plate {
     private boolean food;
     private Cat cat;
     private int volume;
+    private int maxFood;
+
+    public int getMaxFood() {
+        return maxFood;
+    }
 
     public int getCurrentFood() {
         return currentFood;
@@ -42,26 +47,23 @@ public class Plate {
     }
 
 
-    public Plate(boolean food, int currentFood) {
-        this.currentFood = currentFood;
-        this.food = food;
-        this.cat = cat;
-        this.volume = volume;
 
+    public Plate(boolean food, int maxFood) {
+        this.maxFood = maxFood;
+        this.food = food;
     }
 
     public void addFood(FoodPaket foodPaket) {
-        if (currentFood <= 50) {
-            currentFood += foodPaket.getFood();
-                System.out.println(currentFood);
-                foodPaket.clear();
+        if (currentFood + foodPaket.getFood() > maxFood) {
+            currentFood = maxFood;
+            System.out.println(maxFood);
+            foodPaket.clear();
         }
     }
 
     public void isPlate(FoodPaket foodPaket) {
-        if (this.currentFood <= 50) {
+        if (currentFood <= 50) {
             System.out.println("Тарелка пустая " + currentFood);
-            addFood(foodPaket);
         } else {
             System.out.println("Тарелка полная");
         }
