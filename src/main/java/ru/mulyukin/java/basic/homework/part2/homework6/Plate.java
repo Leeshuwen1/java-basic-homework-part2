@@ -8,10 +8,12 @@ public class Plate {
     private int maxFood;
 
     public int getMaxFood() {
+
         return maxFood;
     }
 
     public int getCurrentFood() {
+        currentFood = maxFood;
         return currentFood;
     }
 
@@ -36,8 +38,6 @@ public class Plate {
     }
 
     public int getVolume() {
-        volume = 70;
-        System.out.println(volume);
         return volume;
 
     }
@@ -47,37 +47,45 @@ public class Plate {
     }
 
 
-
-    public Plate(boolean food, int maxFood) {
+    public Plate(int maxFood) {
         this.maxFood = maxFood;
         this.food = food;
+        this.currentFood = currentFood;
     }
 
     public void addFood(FoodPaket foodPaket) {
-        if (currentFood + foodPaket.getFood() > maxFood) {
+        if (getCurrentFood() + foodPaket.getFood() > maxFood) {
             currentFood = maxFood;
-            System.out.println(maxFood);
+            System.out.println(" Еда " + foodPaket.getFood());
             foodPaket.clear();
         }
     }
 
-    public void isPlate(FoodPaket foodPaket) {
-        if (currentFood <= 50) {
-            System.out.println("Тарелка пустая " + currentFood);
+    public boolean isPlate(Cat[] cats) {
+        if (maxFood >= 50) {
+            currentFood = maxFood;
+            maxFood -= decreaseFood(30);
+            System.out.println("Тарелка " + maxFood);
+            return true;
         } else {
-            System.out.println("Тарелка полная");
+            System.out.println("Тарелка пустая " + getCurrentFood());
+            return false;
         }
     }
 
-    public void decreaseFood(int amount) {
+    public int decreaseFood(int amount) {
         currentFood -= amount;
+        return amount;
     }
 
     public void info() {
-        System.out.println("Тарелка " + this.currentFood);
+        System.out.println("Тарелка " + getCurrentFood());
     }
 
 
 }
+
+
+
 
 
