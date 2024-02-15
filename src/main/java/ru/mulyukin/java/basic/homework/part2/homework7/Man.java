@@ -3,6 +3,7 @@ package ru.mulyukin.java.basic.homework.part2.homework7;
 public class Man implements AllTransport {
     private String name;
     private String currentTransport;
+    private Terrain terrain;
 
     public Man(String name) {
         this.name = name;
@@ -24,8 +25,11 @@ public class Man implements AllTransport {
     public void setCurrentTransport(String currentTransport) {
         this.currentTransport = currentTransport;
     }
-    public boolean drive(int distanse) {
-        System.out.println("Человек прошол пешком " + distanse);
+
+    @Override
+    public boolean drive(int distanse, Terrain terrain) {
+        System.out.println("Человек прошёл пешком " + distanse);
         return true;
     }
+
 }

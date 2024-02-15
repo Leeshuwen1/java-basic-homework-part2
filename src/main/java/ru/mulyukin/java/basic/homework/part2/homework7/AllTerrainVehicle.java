@@ -33,7 +33,8 @@ public class AllTerrainVehicle implements AllTransport {
         this.terrainType = terrainType;
     }
 
-    public boolean drive(int distanse) {
+    @Override
+    public boolean drive(int distanse, Terrain terrain) {
         if ((gas * 40) >= distanse) {
             System.out.println("Челокек проехал на  вездеходе " + distanse + " метров");
             return true;

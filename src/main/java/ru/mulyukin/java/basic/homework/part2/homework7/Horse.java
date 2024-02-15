@@ -36,13 +36,17 @@ public class Horse implements AllTransport {
         this.force = force;
     }
 
-    public boolean drive(int distanse) {
-        if ((force * 100) >= distanse) {
+    @Override
+    public boolean drive(int distanse, Terrain terrain) {
+        if ((force * 100) >= distanse && terrain == Terrain.FOREST || terrain == Terrain.PLAIN) {
             System.out.println("Челокек проскакал на коне " + distanse + " метров");
             return true;
+        } else if (terrain == Terrain.SWAMP) {
+            System.out.println("Конь по болоту не едет ");
+            return false;
         } else {
             System.out.println("Конь устал ");
+            return false;
         }
-        return false;
     }
 }

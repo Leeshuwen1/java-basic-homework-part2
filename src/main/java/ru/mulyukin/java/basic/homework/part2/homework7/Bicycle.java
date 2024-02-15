@@ -2,20 +2,21 @@ package ru.mulyukin.java.basic.homework.part2.homework7;
 
 public class Bicycle implements AllTransport {
 
-    private int route;
+    private int manForce;
     private String terrainType;
 
-    public Bicycle(int route) {
-        this.route = route;
-        this.terrainType = terrainType;
+
+    public Bicycle(int manForce) {
+        this.manForce = manForce;
+
     }
 
-    public int getRoute() {
-        return route;
+    public int getManForce() {
+        return manForce;
     }
 
-    public void setRoute(int route) {
-        this.route = route;
+    public void setManForce(int manForce) {
+        this.manForce = manForce;
     }
 
     public String getTerrainType() {
@@ -26,8 +27,20 @@ public class Bicycle implements AllTransport {
         this.terrainType = terrainType;
     }
 
-    public boolean drive(int distanse) {
-        System.out.println("Человек проехал на велосипеде " + distanse + " метров");
-        return true;
+    @Override
+    public boolean drive(int distanse, Terrain terrain) {
+        if ((manForce * 20) >= distanse && terrain == Terrain.FOREST || terrain == Terrain.PLAIN) {
+            System.out.println("Человек проехал на велосипеде " + distanse + " метров");
+            return true;
+        } else if(terrain == Terrain.SWAMP){
+            System.out.println("Велосипед по болоту не едет ");
+            return false;
+        }else {
+            System.out.println("Человек устал ");
+            return false;
+        }
     }
 }
+
+
+
