@@ -7,7 +7,6 @@ public class Man implements AllTransport {
 
     public Man(String name) {
         this.name = name;
-        this.currentTransport = currentTransport;
     }
 
     public String getName() {
