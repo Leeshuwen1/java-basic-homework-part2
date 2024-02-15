@@ -33,13 +33,17 @@ public class Car implements AllTransport {
         this.terrainType = terrainType;
     }
 
-    public boolean drive(int distanse) {
-        if ((gas * 70) >= distanse) {
+    @Override
+    public boolean drive(int distanse, Terrain terrain) {
+        if ((gas * 70) >= distanse && terrain == Terrain.PLAIN) {
             System.out.println("Челокек проехал на машине " + distanse + " метров");
             return true;
+        } else if (terrain == Terrain.SWAMP || terrain == Terrain.FOREST) {
+            System.out.println("Машина по такой местности не едет ");
+            return false;
         } else {
-            System.out.println("Бензин закончился ");
+            System.out.println("Закончился бензин ");
+            return false;
         }
-        return false;
     }
 }
