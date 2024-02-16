@@ -13,7 +13,7 @@ public class Cat {
 
     public boolean getIsHungry() {
         this.isHungry = true;
-        return true;
+        return isHungry;
     }
 
     public String getName() {
@@ -27,21 +27,19 @@ public class Cat {
 
     public Cat(String name) {
         this.name = name;
-        this.appetite = appetite;
-        this.isHungry = isHungry;
     }
 
     public void info() {
-        System.out.println(this.name + " " + "аппетит " + getAppetite());
+        System.out.println(this.name + " " + "аппетит " + appetite);
     }
 
 
     public void eat(Plate plate) {
-        if (getIsHungry() && plate.getMaxFood() > 50) {
+        if (isHungry && plate.getMaxFood() > 50) {
             System.out.println(name + " голоден ");
-            plate.decreaseFood(30);
+            plate.howMuchFoodIsLeft(30);
             appetite += 30;
-            System.out.println((name + " поел " + " сытость увеличилась = " + getAppetite()));
+            System.out.println((name + " поел " + " сытость увеличилась = " + appetite));
             isHungry = false;
         } else {
             System.out.println("Еды не хватило");

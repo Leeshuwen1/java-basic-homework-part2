@@ -3,7 +3,6 @@ package ru.mulyukin.java.basic.homework.part2.homework6;
 public class Plate {
     private int currentFood;
     private boolean food;
-    private Cat cat;
     private int volume;
     private int maxFood;
 
@@ -29,13 +28,6 @@ public class Plate {
         return true;
     }
 
-    public Cat getCat() {
-        return cat;
-    }
-
-    public void setCat(Cat cat) {
-        this.cat = cat;
-    }
 
     public int getVolume() {
         return volume;
@@ -49,12 +41,11 @@ public class Plate {
 
     public Plate(int maxFood) {
         this.maxFood = maxFood;
-        this.food = food;
-        this.currentFood = currentFood;
+
     }
 
     public void addFood(FoodPaket foodPaket) {
-        if (getCurrentFood() + foodPaket.getFood() > maxFood) {
+        if (currentFood + foodPaket.getFood() > maxFood) {
             currentFood = maxFood;
             System.out.println(" Еда " + foodPaket.getFood());
             foodPaket.clear();
@@ -64,22 +55,22 @@ public class Plate {
     public boolean isPlate(Cat[] cats) {
         if (maxFood >= 50) {
             currentFood = maxFood;
-            maxFood -= decreaseFood(30);
+            maxFood -= howMuchFoodIsLeft(30);
             System.out.println("Тарелка " + maxFood);
             return true;
         } else {
-            System.out.println("Тарелка пустая " + getCurrentFood());
+            System.out.println("Тарелка пустая " + currentFood);
             return false;
         }
     }
 
-    public int decreaseFood(int amount) {
+    public int howMuchFoodIsLeft(int amount) {
         currentFood -= amount;
         return amount;
     }
 
     public void info() {
-        System.out.println("Тарелка " + getCurrentFood());
+        System.out.println("Тарелка " + currentFood);
     }
 
 
