@@ -8,7 +8,7 @@ public class MyApp {
                 new Cat("Proshka", true)
 
         };
-        Plate plate = new Plate(100, 100);
+        Plate plate = new Plate(110, 110);
         FoodPaket foodPaket = new FoodPaket(100);
 
         for (int i = 0; i < cats.length; i++) {
