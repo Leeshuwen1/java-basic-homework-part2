@@ -7,8 +7,6 @@ public class Horse implements AllTransport {
     private int force;
 
     public Horse(int force) {
-        this.distanse = distanse;
-        this.terrainType = terrainType;
         this.force = force;
     }
 

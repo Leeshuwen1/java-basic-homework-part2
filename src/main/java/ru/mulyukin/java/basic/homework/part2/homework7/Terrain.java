@@ -5,10 +5,10 @@ public enum Terrain {
     PLAIN(2),
     SWAMP(3);
 
-    private int terrain;
+    private int terrain1;
 
     Terrain(int terrain) {
-        this.terrain = terrain;
+        this.terrain1 = terrain;
     }
 
     public int getTerrain(int terrain) {
