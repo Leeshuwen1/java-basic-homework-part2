@@ -40,8 +40,8 @@ public class Plate {
         currentFood -= 30;
     }
 
-    public boolean returnFood(){
-        if(currentFood != maxFood && currentFood != 0){
+    public boolean returnFood() {
+        if (currentFood != maxFood && currentFood != 0) {
             System.out.println("В тарелке еда есть " + currentFood);
             return true;
         }

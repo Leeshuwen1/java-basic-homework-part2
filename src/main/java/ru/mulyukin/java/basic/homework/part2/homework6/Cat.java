@@ -35,7 +35,7 @@ public class Cat {
             System.out.println(name + " поел ");
             return true;
         } else {
-            System.out.println("Кот не может поесть ");
+            System.out.println(name + " не может поесть ");
         }
         return false;
 
