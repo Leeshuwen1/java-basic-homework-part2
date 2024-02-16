@@ -3,7 +3,7 @@ package ru.mulyukin.java.basic.homework.part2.homework7;
 public class Man implements AllTransport {
     private String name;
     private String currentTransport;
-    private Terrain terrain;
+
 
     public Man(String name) {
         this.name = name;
