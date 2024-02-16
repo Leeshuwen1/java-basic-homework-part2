@@ -42,7 +42,7 @@ public class Plate {
 
     public boolean returnFood(){
         if(currentFood != maxFood && currentFood != 0){
-            System.out.println("В тарелке еда есть ");
+            System.out.println("В тарелке еда есть " + currentFood);
             return true;
         }
         return false;

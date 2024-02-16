@@ -32,12 +32,13 @@ public class Cat {
             System.out.println(name + " голоден");
             plate.returnFood();
             plate.amountOfFoodLeft();
-            System.out.println(name + " поел " + plate.getCurrentFood());
+            System.out.println(name + " поел ");
             return true;
         } else {
             System.out.println("Кот не может поесть ");
         }
         return false;
+
     }
 }
 
