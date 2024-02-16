@@ -37,7 +37,7 @@ public class Cat {
     public void eat(Plate plate) {
         if (isHungry && plate.getMaxFood() > 50) {
             System.out.println(name + " голоден ");
-            plate.howMuchFoodIsLeft(30);
+            plate.howMuchFoodEatCat(30);
             appetite += 30;
             System.out.println((name + " поел " + " сытость увеличилась = " + appetite));
             isHungry = false;

@@ -15,7 +15,6 @@ public class MyApp {
             cats[i].eat(plate);
             plate.isPlate(cats);
         }
-        plate.addFood(foodPaket);
 
 
     }

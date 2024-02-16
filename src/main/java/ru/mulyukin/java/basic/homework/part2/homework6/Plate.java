@@ -5,9 +5,11 @@ public class Plate {
     private boolean food;
     private int volume;
     private int maxFood;
+    //private Cat cats;
+
 
     public int getMaxFood() {
-
+        maxFood = 100;
         return maxFood;
     }
 
@@ -52,10 +54,10 @@ public class Plate {
         }
     }
 
-    public boolean isPlate(Cat[] cats) {
+    public boolean isPlate(Cat [] cats) {
         if (maxFood >= 50) {
             currentFood = maxFood;
-            maxFood -= howMuchFoodIsLeft(30);
+            maxFood -= howMuchFoodEatCat(30);
             System.out.println("Тарелка " + maxFood);
             return true;
         } else {
@@ -64,7 +66,7 @@ public class Plate {
         }
     }
 
-    public int howMuchFoodIsLeft(int amount) {
+    public int howMuchFoodEatCat(int amount) {
         currentFood -= amount;
         return amount;
     }
