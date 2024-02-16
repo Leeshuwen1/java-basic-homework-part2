@@ -20,7 +20,7 @@ public class Cat {
     }
 
     public boolean isHungry() {
-        return true;
+        return isHungry;
     }
 
     public void setHungry(boolean hungry) {
@@ -30,6 +30,7 @@ public class Cat {
     public boolean eat(Plate plate) {
         if (isHungry && plate.getCurrentFood() >= 30) {
             System.out.println(name + " голоден");
+            plate.returnFood();
             plate.amountOfFoodLeft();
             System.out.println(name + " поел " + plate.getCurrentFood());
             return true;
