@@ -30,8 +30,7 @@ public class Cat {
     public boolean eat(Plate plate) {
         if (isHungry && plate.getCurrentFood() >= 30) {
             System.out.println(name + " голоден");
-            plate.returnFood();
-            plate.amountOfFoodLeft();
+            plate.returnFood(30);
             System.out.println(name + " поел ");
             return true;
         } else {
