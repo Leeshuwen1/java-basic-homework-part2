@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import static ru.mulyukin.java.basic.homework.part2.homework8.ArrayException.twoArrays;
 import static ru.mulyukin.java.basic.homework.part2.homework8.SumIntArray.sumArray;
+
 public class Main {
     public static void main(String[] args) throws Exception {
 
@@ -17,8 +18,8 @@ public class Main {
 
         try {
             sumArray();
-        }catch (Exception e){
-            System.out.println("В целочисленный массив внесли строку");
+        } catch (NumberFormatException e) {
+            System.out.println("В целочисленный массив внесли строку " + e);
         }
         System.out.println("Программа завершена");
 
