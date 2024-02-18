@@ -36,11 +36,15 @@ public class Plate {
         }
     }
 
-    public void amountOfFoodLeft() {
-        currentFood -= 30;
+
+    public boolean returnFood(int foodToDecrease) {
+        if (currentFood >= foodToDecrease) {
+            System.out.println("В тарелке еда есть " + currentFood);
+            currentFood -= foodToDecrease;
+            return true;
+        }
+        return false;
     }
-
-
 }
 
 
