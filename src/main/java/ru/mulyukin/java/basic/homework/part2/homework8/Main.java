@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static ru.mulyukin.java.basic.homework.part2.homework8.ArrayException.twoArrays;
 import static ru.mulyukin.java.basic.homework.part2.homework8.SumIntArray.sumArray;
 public class Main {
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws Exception {
 
         try {
             twoArrays(new String[][]{{"a", "a", "a", "a", "a"}, {"b", "b", "b", "b", "b"}, {"c", "c", "c", "c", "c"}});
@@ -21,6 +21,8 @@ public class Main {
             System.out.println("В целочисленный массив внесли строку");
         }
         System.out.println("Программа завершена");
+
+
     }
 }
 

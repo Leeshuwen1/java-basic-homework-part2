@@ -5,13 +5,11 @@ import java.util.Arrays;
 
 public class SumIntArray {
     public static int sumArray() throws Exception {
-        int[] array = new int[]{3, 5, 7, 5};
+        String [] string = new String[] {"l","2","4", "3"};
+        int[] array = Arrays.stream(string).mapToInt(Integer::parseInt).toArray();
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum += array[i];
-            if (Arrays.asList(array).contains(i)) {
-                throw new Exception();
-            }
         }
         System.out.println(sum);
         return sum;
