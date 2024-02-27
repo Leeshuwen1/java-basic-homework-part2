@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static ru.mulyukin.java.basic.homework.part2.homework9.Employee.*;
 import static ru.mulyukin.java.basic.homework.part2.homework9.Exercises.*;
-import static ru.mulyukin.java.basic.homework.part2.homework9.ListOfEmployees.print;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -32,10 +32,15 @@ public class Main {
 
 
         print(listEmployee);
-        averageAge(30, listEmployee);
+        try {
+            averageAge(35, listEmployee);
+        }catch (Exception e){
+            System.out.println("Средний возраст сотрудников больше чем заявлен");
+        }
+        System.out.println("Завершение программы ");
+
         minAge(25, listEmployee);
         minAgeEmployee(listEmployee);
-
 
     }
 }
