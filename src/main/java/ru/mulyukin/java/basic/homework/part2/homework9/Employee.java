@@ -1,10 +1,10 @@
 package ru.mulyukin.java.basic.homework.part2.homework9;
 
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
-public class Employee {
+
+public class Employee implements ListOfEmployees {
 
     private String name;
     private Integer age;
@@ -22,10 +22,6 @@ public class Employee {
         return age;
     }
 
-    public static ArrayList<Employee> print(ArrayList<Employee> employees) {
-        System.out.println(employees);
-        return employees;
-    }
 
     @Override
     public String toString() {
@@ -35,34 +31,34 @@ public class Employee {
                 '}';
     }
 
-    public static ArrayList<Employee> minAge(ArrayList<Employee> list) {
-        int minAge = 25;
-        Iterator<Employee> iter = list.iterator();
-        while (iter.hasNext()) {
-            Integer chislo = iter.next().getAge();
-            if (chislo <= minAge) {
-                iter.remove();
+    public static List<Employee> minAge(int min, List<Employee> list) {
+        List<Employee> copy = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            if (min < list.get(i).getAge()) {
+                copy.add(list.get(i));
             }
         }
+        System.out.println(copy);
         return list;
     }
 
-    public static ArrayList<Employee> averageAge(ArrayList<Employee> list) {
-        int average = 30;
+    public static boolean averageAge(int average, List<Employee> list) {
         int ourMiddleAge = 0;
-        for (int i = 0; i < list.size(); i++) {
-            ourMiddleAge += list.get(i).getAge() / list.size();
+        for (Employee elem : list) {
+            ourMiddleAge += elem.getAge(); // list.size();
             System.out.println("Средний возраст = " + ourMiddleAge);
-            if (ourMiddleAge < average) {
+            if (ourMiddleAge / list.size() < average) {
                 System.out.println("Средний возраст " + ourMiddleAge + " < " + average);
+                return true;
             } else {
                 System.out.println("Средний возраст " + ourMiddleAge + " > " + average);
+
             }
         }
-        return list;
+        return false;
     }
 
-    public static ArrayList<Employee> minAgeEmployee(ArrayList<Employee> list) {
+    public static List<Employee> minAgeEmployee(List<Employee> list) {
         int min = list.get(0).getAge();
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getAge() < min) {
