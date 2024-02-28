@@ -2,17 +2,25 @@ package ru.mulyukin.java.basic.homework.part2.homework9;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
 
 import static ru.mulyukin.java.basic.homework.part2.homework9.Employee.*;
 import static ru.mulyukin.java.basic.homework.part2.homework9.Exercises.*;
 
+
 public class Main {
     public static void main(String[] args) {
-        minMaxArray(10, 50);
+        try {
+            minMaxArray(40, 50);
+        } catch (Exception e) {
+            System.out.println("Вы ввели не тот символ ");
+        }
+        System.out.println("Завершение программы ");
+
+
         sumMoreFive(new ArrayList<>(Arrays.asList(10, 14, 2, 3, 7, -1, 5, -15, 35, 2)));
-        fillArray(7, new ArrayList<>());
-        increasingNumber(6, new ArrayList<>());
+        fillArray(7, new ArrayList<>(Arrays.asList(1, 1, 1, 1, 1, 1, 1, 1, 1, 1)));
+        increasingNumber(6, new ArrayList<>(Arrays.asList(3, 5, 1, 5, 6, 7, 8, 9, 3, 1, 7)));
 
 
         ArrayList<Employee> listEmployee = new ArrayList<>();
@@ -24,11 +32,15 @@ public class Main {
 
 
         print(listEmployee);
-//        minAge(listEmployee);
-//        print(listEmployee);
-        averageAge(listEmployee);
-        minAgeEmployee(listEmployee);
+        try {
+            averageAge(35, listEmployee);
+        }catch (Exception e){
+            System.out.println("Средний возраст сотрудников больше чем заявлен");
+        }
+        System.out.println("Завершение программы ");
 
+        minAge(25, listEmployee);
+        minAgeEmployee(listEmployee);
 
     }
 }

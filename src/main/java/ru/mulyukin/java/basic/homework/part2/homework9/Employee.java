@@ -1,8 +1,8 @@
 package ru.mulyukin.java.basic.homework.part2.homework9;
 
 
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
+
 
 public class Employee {
 
@@ -22,10 +22,11 @@ public class Employee {
         return age;
     }
 
-    public static ArrayList<Employee> print(ArrayList<Employee> employees) {
-        System.out.println(employees);
-        return employees;
+    public static List<Employee> print(List<Employee> list) {
+        System.out.println(list);
+        return list;
     }
+
 
     @Override
     public String toString() {
@@ -35,45 +36,39 @@ public class Employee {
                 '}';
     }
 
-    public static ArrayList<Employee> minAge(ArrayList<Employee> list) {
-        int minAge = 25;
-        Iterator<Employee> iter = list.iterator();
-        while (iter.hasNext()) {
-            Integer chislo = iter.next().getAge();
-            if (chislo <= minAge) {
-                iter.remove();
+    public static List<Employee> minAge(int min, List<Employee> list) {
+        List<Employee> copy = new ArrayList<>();
+        for (Employee elem : list) {
+            if (min < elem.getAge()) {
+                copy.add(elem);
             }
         }
+        System.out.println(copy);
         return list;
     }
 
-    public static ArrayList<Employee> averageAge(ArrayList<Employee> list) {
-        int average = 30;
+    public static Integer averageAge(int average, List<Employee> list) throws Exception {
         int ourMiddleAge = 0;
-        for (int i = 0; i < list.size(); i++) {
-            ourMiddleAge += list.get(i).getAge() / list.size();
-            System.out.println("Средний возраст = " + ourMiddleAge);
-            if (ourMiddleAge < average) {
-                System.out.println("Средний возраст " + ourMiddleAge + " < " + average);
+        for (Employee elem : list) {
+            if ((ourMiddleAge += elem.getAge() / list.size()) < average) {
             } else {
-                System.out.println("Средний возраст " + ourMiddleAge + " > " + average);
+                throw new Exception("Средний возраст больше");
             }
         }
-        return list;
+        System.out.println("Средний возраст  cотрудников " + ourMiddleAge + " < " + "Минимальный средний возраст " + average);
+        return -1;
     }
 
-    public static ArrayList<Employee> minAgeEmployee(ArrayList<Employee> list) {
+    public static List<Employee> minAgeEmployee(List<Employee> list) {
         int min = list.get(0).getAge();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getAge() < min) {
-                min = list.get(i).getAge();
-
+        for (Employee elem : list) {
+            if (elem.getAge() < min) {
+                min = elem.getAge();
             }
         }
         System.out.println("Минимальный возраст сотрудника " + min);
         return list;
     }
-
 }
 
 
