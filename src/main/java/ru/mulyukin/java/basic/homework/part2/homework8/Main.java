@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws AppArrayDataException, AppArraySizeException {
 
         try {
-                sumArrays(new String[][]{{"2", "2", "2", "2"}, {"3", "3", "3", "3"}, {"4", "4", "4", "4"}});
+                sumArrays(new String[][]{{"1", "1", "1", "1"}, {"2", "2", "2", "2"}, {"3", "3", "3", "3"}, {"4", "4", "4", "4"}});
 
         } catch (AppArraySizeException e) {
             System.out.println("индекс массива больше или меньше чем заложено программой");
