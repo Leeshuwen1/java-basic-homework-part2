@@ -1,17 +1,13 @@
 package ru.mulyukin.java.basic.homework.part2.homework8;
 
-import java.util.Arrays;
-
-import static java.lang.Character.*;
-
 
 public class ArrayExc {
-    public static String[][] sumArrays(String[][] array) {
+    public static String[][] sumArrays(String[][] array) throws AppArrayDataException, AppArraySizeException{
         int[][] result = new int[array.length][array.length];
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if (i > 3 || j > 3) {
+                if (array.length != 4 || i > 3 || j > 3) {
                     throw new AppArraySizeException("Вышли за массив");
                 }
                 if (!array[i][j].matches("[-+]?\\d+")) {
@@ -29,3 +25,4 @@ public class ArrayExc {
     }
 
 }
+
