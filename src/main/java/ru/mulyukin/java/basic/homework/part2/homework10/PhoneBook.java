@@ -1,35 +1,51 @@
 package ru.mulyukin.java.basic.homework.part2.homework10;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PhoneBook {
-    Map<Integer, String> phoneBook = new HashMap<>();
+    private Map<Integer, String> record = new HashMap<>();
 
-    public PhoneBook() {
-        this.phoneBook = phoneBook;
+
+    public void addContact(Integer integer, Contact contact) {
+        record.put(integer, String.valueOf(contact));
     }
 
-    public void addContact(Contact contact) {
-        phoneBook.put(contact.getPhoneNumber(), contact.getFullName());
-    }
 
     public void printContact() {
-        System.out.println(phoneBook);
-    }
-
-    public void find(String fullName) {
-        for (Map.Entry<Integer, String> entry : phoneBook.entrySet()) {
+        for (Map.Entry<Integer, String> entry : record.entrySet()) {
             String value = entry.getValue();
             Integer key = entry.getKey();
-            if (value.equals(fullName)) {
+            System.out.println("ФИО " + value + " , " + " телефон " + key);
+        }
+    }
+
+    public void find(String firstName) {
+        for (Map.Entry<Integer, String> entry : record.entrySet()) {
+            String value = entry.getValue();
+            Integer key = entry.getKey();
+            if (value.equals(firstName)) {
                 System.out.println("Номер контакта " + key);
+            } else {
+                System.out.println("Имя не верно ");
             }
         }
     }
 
-    public boolean containsPhoneNumber(Integer phoneNumber) {
-        System.out.println(phoneBook.containsKey(phoneNumber));
-        return true;
+
+    public void containsPhoneNumber(Integer phoneNumber) {
+        System.out.println(record.containsKey(phoneNumber));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhoneBook phoneBook = (PhoneBook) o;
+        return Objects.equals(record, phoneBook.record);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(record);
     }
 }
