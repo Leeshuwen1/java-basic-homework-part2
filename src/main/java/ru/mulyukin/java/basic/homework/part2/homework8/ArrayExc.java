@@ -7,7 +7,7 @@ public class ArrayExc {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                if (array.length != 4 || i > 3 || j > 3) {
+                if (array.length != 4 || array[i].length != 4) {
                     throw new AppArraySizeException("Вышли за массив");
                 }
                 if (!array[i][j].matches("[-+]?\\d+")) {
