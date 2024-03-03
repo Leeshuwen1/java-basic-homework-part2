@@ -13,8 +13,6 @@ public class Contact {
         this.address = address;
     }
 
-    public Contact() {
-    }
 
     public String getFirstName() {
         return firstName;
