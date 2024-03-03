@@ -12,10 +12,12 @@ public class Main {
         phoneBook.addContact(2457777, new Contact("Майя", "Мулюкина", "ул.Пролетарская 10, кв. 54"));
         phoneBook.addContact(2464444, new Contact("Игорь", "Удалов", "пр.Ильича 8, кв. 63"));
         phoneBook.printContact();
-
         System.out.println();
 
-        phoneBook.find("Майя");
+        phoneBook.find("Юрий");
+
+
+        System.out.println();
 
         phoneBook.containsPhoneNumber(2453099);
         phoneBook.containsPhoneNumber(2346788);
