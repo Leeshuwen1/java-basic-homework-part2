@@ -1,35 +1,43 @@
 package ru.mulyukin.java.basic.homework.part2.homework10;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class PhoneBook {
-    Map<Integer, String> phoneBook = new HashMap<>();
+    private Map<Integer, List<Contact>> record = new HashMap<>();
 
-    public PhoneBook() {
-        this.phoneBook = phoneBook;
+
+    public void addContact(Integer integer, Contact contact) {
+        record.computeIfAbsent(integer, k -> new ArrayList<>()).add((contact));
+
     }
 
-    public void addContact(Contact contact) {
-        phoneBook.put(contact.getPhoneNumber(), contact.getFullName());
-    }
 
     public void printContact() {
-        System.out.println(phoneBook);
+        for (Map.Entry<Integer, List<Contact>> entry : record.entrySet()) {
+            String value = entry.getValue().toString();
+            Integer key = entry.getKey();
+            System.out.println("ФИО " + value + " , " + " телефон " + key);
+        }
     }
 
-    public void find(String fullName) {
-        for (Map.Entry<Integer, String> entry : phoneBook.entrySet()) {
-            String value = entry.getValue();
-            Integer key = entry.getKey();
-            if (value.equals(fullName)) {
-                System.out.println("Номер контакта " + key);
+    public void find(String firstName) {
+        for (Map.Entry<Integer, List<Contact>> elem : record.entrySet()) {
+            String value = elem.getValue().toString();
+            Integer key = elem.getKey();
+            if (value.contains(firstName)) {
+                System.out.println("Номер абонента " + key);
             }
         }
     }
 
-    public boolean containsPhoneNumber(Integer phoneNumber) {
-        System.out.println(phoneBook.containsKey(phoneNumber));
-        return true;
+
+    public void containsPhoneNumber(Integer phoneNumber) {
+        System.out.println(record.containsKey(phoneNumber));
     }
+
 }
+
+

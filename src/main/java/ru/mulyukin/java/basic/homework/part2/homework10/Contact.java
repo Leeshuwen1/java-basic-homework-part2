@@ -3,41 +3,50 @@ package ru.mulyukin.java.basic.homework.part2.homework10;
 import java.util.Objects;
 
 public class Contact {
-    private String fullName;
-    private Integer phoneNumber;
+    private String firstName;
+    private String lastName;
+    private String address;
 
-    public Contact(String fullName, Integer phoneNumber) {
-        this.fullName = fullName;
-        this.phoneNumber = phoneNumber;
+    public Contact(String firstName, String lastName, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
     }
 
-    public String getFullName() {
-        return fullName;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Integer getPhoneNumber() {
-        return phoneNumber;
+    public String getLastName() {
+        return lastName;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Contact phoneBook = (Contact) o;
-        return Objects.equals(fullName, phoneBook.fullName) && Objects.equals(phoneNumber, phoneBook.phoneNumber);
+        Contact contact = (Contact) o;
+        return Objects.equals(firstName, contact.firstName) && Objects.equals(lastName, contact.lastName) && Objects.equals(address, contact.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, phoneNumber);
-    }
-
-    @Override
-    public String toString() {
-        return "PhoneBook{" +
-                "fullName='" + fullName + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                '}';
+        return Objects.hash(firstName, lastName, address);
     }
 }
+
+
