@@ -28,7 +28,7 @@ public class PhoneBook {
             String value = elem.getValue().toString();
             Integer key = elem.getKey();
             if (value.contains(firstName)) {
-                System.out.println("Номер обонента " + key);
+                System.out.println("Номер абонента " + key);
             }
         }
     }
