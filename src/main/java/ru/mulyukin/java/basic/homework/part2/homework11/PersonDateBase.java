@@ -50,16 +50,16 @@ public class PersonDateBase {
         for (Map.Entry<Integer, List<Person>> entry : base.entrySet()) {
             String value = entry.getValue().toString();
             Integer key = entry.getKey();
-            if (!Position.MANAGER.getPosition().contains(person) || !Position.SENIOR_MANAGER.getPosition().contains(person)
-                    || !Position.DIRECTOR.getPosition().contains(person) || !Position.BRANCH_DIRECTOR.getPosition().contains(person)) {
-                System.out.println("Номер " + key + " " + "Имя, Фамаилия, должность" + value);
-                return true;
-            } else {
+            if (Position.MANAGER.getPosition().contains(person) || Position.SENIOR_MANAGER.getPosition().contains(person)
+                    || Position.DIRECTOR.getPosition().contains(person) || Position.BRANCH_DIRECTOR.getPosition().contains(person)) {
                 System.out.println("Не туда");
+                return false;
+            } else {
+                System.out.println("Номер " + key + " " + "Имя, Фамаилия, должность" + value);
             }
 
         }
-        return false;
+        return true;
     }
 
 }
