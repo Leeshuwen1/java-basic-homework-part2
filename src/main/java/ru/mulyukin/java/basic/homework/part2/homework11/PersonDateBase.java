@@ -34,10 +34,27 @@ public class PersonDateBase {
         for (Map.Entry<Integer, List<Person>> entry : base.entrySet()) {
             String value = entry.getValue().toString();
             Integer key = entry.getKey();
-            if (value.contains(person)) {
-                System.out.println("Сотрудник руководитель " + Position.MANAGER);
+            if (Position.MANAGER.getPosition().contains(person) || Position.SENIOR_MANAGER.getPosition().contains(person)
+                    || Position.DIRECTOR.getPosition().contains(person) || Position.BRANCH_DIRECTOR.getPosition().contains(person)) {
+                System.out.println("Номер " + key + " " + "Имя, Фамаилия, должность" + value);
                 return true;
-            }else{
+            } else {
+                System.out.println("Не туда");
+            }
+
+        }
+        return false;
+    }
+
+    public static boolean isEmployee(String person) {
+        for (Map.Entry<Integer, List<Person>> entry : base.entrySet()) {
+            String value = entry.getValue().toString();
+            Integer key = entry.getKey();
+            if (!Position.MANAGER.getPosition().contains(person) || !Position.SENIOR_MANAGER.getPosition().contains(person)
+                    || !Position.DIRECTOR.getPosition().contains(person) || !Position.BRANCH_DIRECTOR.getPosition().contains(person)) {
+                System.out.println("Номер " + key + " " + "Имя, Фамаилия, должность" + value);
+                return true;
+            } else {
                 System.out.println("Не туда");
             }
 
