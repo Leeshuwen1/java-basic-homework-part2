@@ -23,7 +23,13 @@ public class Main {
 //        personDateBase.findId(7);
 //        System.out.println();
 
-        personDateBase.isManager("Игорь");
+
+        personDateBase.isManager("Manager");
+        personDateBase.isManager("Branch_director");
+        personDateBase.isManager("Senior_manager");
+        personDateBase.isManager("Junior_developer");
+        personDateBase.isEmployee("Janitor");
+        personDateBase.isEmployee("Junior_developer");
 
 
     }
