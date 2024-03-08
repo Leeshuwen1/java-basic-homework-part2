@@ -22,8 +22,7 @@ public class Person {
         return LastName;
     }
 
-    public Position getPosition()
-    {
+    public Position getPosition() {
         return position;
     }
 
