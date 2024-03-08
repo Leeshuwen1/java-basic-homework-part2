@@ -1,5 +1,9 @@
 package ru.mulyukin.java.basic.homework.part2.homework11;
 
+import java.util.Arrays;
+
+import static ru.mulyukin.java.basic.homework.part2.homework11.BubleSort.bubleApp;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -18,21 +22,11 @@ public class Main {
         personDateBase.add(10, new Person("Елена", "Домагарова", Position.BRANCH_DIRECTOR));
         personDateBase.add(11, new Person("Алексей", "Пучков", Position.JUNIOR_DEVELOPER));
 
-//        personDateBase.print();
-//        System.out.println();
-//        personDateBase.findId(7);
-//        System.out.println();
 
+        personDateBase.isEmployee(5);
 
-        personDateBase.isManager("Manager");
-        personDateBase.isManager("Branch_director");
-        personDateBase.isManager("Senior_manager");
-        personDateBase.isManager("Junior_developer");
-        personDateBase.isEmployee("Janitor");
-        personDateBase.isEmployee("Junior_developer");
-
+        bubleApp();
 
     }
-
 }
 
