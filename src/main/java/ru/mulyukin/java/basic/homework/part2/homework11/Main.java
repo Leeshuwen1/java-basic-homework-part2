@@ -23,6 +23,8 @@ public class Main {
         personDateBase.add(11, new Person("Алексей", "Пучков", Position.JUNIOR_DEVELOPER));
 
 
+        personDateBase.isEmployee(5);
+
         bubleApp();
 
     }

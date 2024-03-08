@@ -30,6 +30,7 @@ public class PersonDateBase {
     }
 
     public boolean isManager(Person person) {
+        person = base.getOrDefault(person, null);
         if (person == null) {
             return false;
         }
@@ -41,17 +42,11 @@ public class PersonDateBase {
     }
 
     public boolean isEmployee(Integer id) {
-        if (id == null) {
+        Person person = base.getOrDefault(id, null);
+        if (person == null) {
             return false;
         }
-        Person person = base.getOrDefault(id, null);
-        Position position = person.getPosition();
-        return position == Position.DRIVER
-                || position == Position.ENGINEER
-                || position == Position.JANITOR
-                || position == Position.JUNIOR_DEVELOPER
-                || position == Position.PLUMBER
-                || position == Position.QA;
+        return !isManager(person);
     }
 
 }
