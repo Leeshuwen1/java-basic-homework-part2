@@ -20,16 +20,9 @@ public class Main {
 
 //        personDateBase.print();
 //        System.out.println();
-//        personDateBase.findId(7);
-//        System.out.println();
 
-
-        personDateBase.isManager("Manager");
-        personDateBase.isManager("Branch_director");
-        personDateBase.isManager("Senior_manager");
-        personDateBase.isManager("Junior_developer");
-        personDateBase.isEmployee("Janitor");
-        personDateBase.isEmployee("Junior_developer");
+        personDateBase.findId(5);
+       // personDateBase.isManager();
 
 
     }
