@@ -2,8 +2,6 @@ package ru.mulyukin.java.basic.homework.part2.homework12;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class FunctionOnApp {
 
