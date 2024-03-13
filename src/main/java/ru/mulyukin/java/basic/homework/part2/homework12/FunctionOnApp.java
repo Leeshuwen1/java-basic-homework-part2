@@ -9,7 +9,7 @@ public class FunctionOnApp {
 
 
     public static void fileCreation(String nameFile) {
-        try {
+        try{
             File file = new File(nameFile);
             if (!file.exists()) {
                 file.createNewFile();
@@ -19,8 +19,8 @@ public class FunctionOnApp {
         }
     }
 
-    public static void outputFile(String text, String nameFile) {
-        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(nameFile))) {
+    public static void outputFile(String nameFile, String text) {
+        try (BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(nameFile, true))) {
             buffer = text.getBytes(StandardCharsets.UTF_8);
             for (int i = 0; i < buffer.length; i++) {
                 out.write(buffer[i]);

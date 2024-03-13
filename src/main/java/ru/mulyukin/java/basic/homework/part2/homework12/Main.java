@@ -1,7 +1,5 @@
 package ru.mulyukin.java.basic.homework.part2.homework12;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 import static ru.mulyukin.java.basic.homework.part2.homework12.FunctionOnApp.*;
@@ -12,19 +10,23 @@ public class Main {
         System.out.println("Тут вы можете как создать так и работать с создаными файлами");
         Scanner scanner = new Scanner(System.in);
         System.out.println("Создать файл: Yes или No"); // выбирайте No, (метод полностью рабочий) т.к. еще не умею делать так чтобы при создании нового файла они попадали автоматически в выбор пользователя
-        char choiceUser = scanner.next().charAt(0);
+        char choiceUser = scanner.nextLine().charAt(0);
         if (choiceUser == 'y') {
             System.out.println("Внесите название файла в формате .txt");
             fileCreation(scanner.next());
             System.out.println("Файл создан ");
         } else {
             System.out.println("Вы решили работать с уже созданными файлами");
-            search();
         }
+        search();
+        System.out.println("Внесите название файла с расширением .txt для просмотра файла");
 
-        outputFile(scanner.nextLine(), "fail.txt");
+        inputFile(scanner.nextLine());
 
+        System.out.println();
+        System.out.println("Выберите файл для записи и внесите текст");
 
+        outputFile(scanner.nextLine(), scanner.nextLine());
     }
 }
 
