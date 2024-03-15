@@ -9,7 +9,7 @@ public class FunctionOnApp {
 
 
     public static void fileCreation(String nameFile) {
-        try{
+        try {
             File file = new File(nameFile);
             if (!file.exists()) {
                 file.createNewFile();
@@ -42,8 +42,8 @@ public class FunctionOnApp {
         }
     }
 
-    public static void search(){
-        File path = new File("C:/Users/ChenT/IdeaProjects/java lesson and homework/java-basic-homework-part2");
+    public static void search() {
+        File path = new File("../java-basic-homework-part2");
         for (File file : path.listFiles()) {
             if (!file.isDirectory()) {
                 System.out.println(file.getName());

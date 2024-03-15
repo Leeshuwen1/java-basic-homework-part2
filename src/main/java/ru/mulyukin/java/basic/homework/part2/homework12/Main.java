@@ -9,7 +9,7 @@ public class Main {
         System.out.println("Welcome in DIARY");
         System.out.println("Тут вы можете как создать так и работать с создаными файлами");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Создать файл: Yes или No"); // выбирайте No, (метод полностью рабочий) т.к. еще не умею делать так чтобы при создании нового файла они попадали автоматически в выбор пользователя
+        System.out.println("Создать файл: Yes или No");
         char choiceUser = scanner.nextLine().charAt(0);
         if (choiceUser == 'y') {
             System.out.println("Внесите название файла в формате .txt");
