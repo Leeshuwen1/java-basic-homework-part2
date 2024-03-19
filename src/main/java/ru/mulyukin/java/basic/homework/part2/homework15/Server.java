@@ -10,7 +10,7 @@ public class Server {
         ServerSocket serverSocket = new ServerSocket(8080);
         while (true) {
             Socket clientSocket = serverSocket.accept();
-            DataInputStream inputStream = new DataInputStream(clientSocket.getInputStream());
+            BufferedReader inputStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), "UTF-8"));
             DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
             char clientRequest = (char) inputStream.read();
             System.out.println(clientRequest);
