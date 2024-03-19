@@ -4,15 +4,14 @@ import java.io.InputStream;
 
 public class CalculatorApp {
 
-    private final Character sing;
+    private char sing;
 
     public CalculatorApp() {
-        this.sing = null;
+        this.sing = sing;
     }
 
-    public int calculator(int a, int b){
+    public int calculator(char sing, int a, int b){
         int result = 0;
-        sing.charValue();
         if(sing == '+'){
             result = a + b;
             System.out.println(a + " + " + b + " = " + result);

@@ -10,10 +10,14 @@ public class Server {
         ServerSocket serverSocket = new ServerSocket(8080);
         while (true) {
             Socket clientSocket = serverSocket.accept();
-            BufferedInputStream inputStream = new BufferedInputStream(clientSocket.getInputStream());
-            BufferedOutputStream outputStream = new BufferedOutputStream(clientSocket.getOutputStream());
-            int clientRequest = inputStream.read();
-            int result = calculatorApp.calculator(clientRequest, clientRequest);
+            DataInputStream inputStream = new DataInputStream(clientSocket.getInputStream());
+            DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
+            char clientRequest = inputStream.readChar();
+            System.out.println(clientRequest);
+            int clientInt = inputStream.readInt();
+            System.out.println(clientInt);
+            int result = calculatorApp.calculator(clientRequest, clientInt, clientInt);
+            System.out.println(result);
             outputStream.write(result);
             outputStream.flush();
         }
