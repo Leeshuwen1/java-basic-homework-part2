@@ -10,7 +10,8 @@ public class CalculatorApp {
         this.sing = sing;
     }
 
-    public int calculator(char sing, int a, int b){
+
+    public static int calculator(char sing, int a, int b){
         int result = 0;
         if(sing == '+'){
             result = a + b;

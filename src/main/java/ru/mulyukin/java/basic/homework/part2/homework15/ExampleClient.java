@@ -11,7 +11,7 @@ public class ExampleClient implements Closeable {
         this.outputStream = new DataOutputStream(outputStream);
     }
 
-    public int send(int a) throws IOException {
+    public int send(char sing, int a, int b) throws IOException {
         outputStream.writeInt(a);
         outputStream.flush();
         int result = inputStream.readInt();
