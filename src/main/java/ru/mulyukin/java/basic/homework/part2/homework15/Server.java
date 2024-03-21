@@ -28,7 +28,7 @@ public class Server {
             System.out.println(secondInt);
             int result = calculatorApp.calculator(clientRequest, clientInt, secondInt);
             System.out.println(result);
-            outputStream.write(result);
+            outputStream.writeInt(result);
             outputStream.flush();
         }
     }
