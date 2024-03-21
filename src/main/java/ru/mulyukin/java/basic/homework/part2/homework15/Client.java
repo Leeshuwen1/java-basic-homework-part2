@@ -17,6 +17,7 @@ public class Client {
                 System.out.println("Введите числа ");
                 int a = scanner.nextInt();
                 int b = scanner.nextInt();
+
                 exampleClient.send(sing, a, b);
                 exampleClient.close();
 
