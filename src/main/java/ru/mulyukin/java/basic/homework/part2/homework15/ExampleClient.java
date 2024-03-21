@@ -12,7 +12,9 @@ public class ExampleClient implements Closeable {
     }
 
     public int send(char sing, int a, int b) throws IOException {
+        outputStream.writeChar(sing);
         outputStream.writeInt(a);
+        outputStream.writeInt(b);
         outputStream.flush();
         int result = inputStream.readInt();
         System.out.println(result);
