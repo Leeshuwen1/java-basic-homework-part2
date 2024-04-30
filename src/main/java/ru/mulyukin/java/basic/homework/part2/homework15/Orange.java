@@ -5,14 +5,5 @@ public class Orange extends Fruit{
         super(weight);
     }
 
-    @Override
-    public Integer getWeight() {
-        return super.getWeight();
-    }
-
-    @Override
-    public void setWeight(Integer weight) {
-        super.setWeight(weight);
-    }
 
 }

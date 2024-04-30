@@ -1,9 +1,7 @@
 package ru.mulyukin.java.basic.homework.part2.homework15;
 
-import java.util.Objects;
-
 public class Fruit {
-    private Integer weight;
+    private int weight;
 
     public Fruit(Integer weight) {
         this.weight = weight;
