@@ -1,6 +1,9 @@
 package ru.mulyukin.java.basic.homework.part2.homework15;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class MyApp {
     public static void main(String[] args) {
@@ -10,11 +13,11 @@ public class MyApp {
 
 
 
-        boxWithOrange.add(new Orange(2));
-        boxWithOrange.add(new Orange(2));
+        boxWithOrange.add(new Orange(3));
+        boxWithOrange.add(new Orange(1));
         boxWithOrange.add(new Orange(2));
         boxWithApple.add(new Apple(2));
-        boxWithApple.add(new Apple(2));
+        boxWithApple.add(new Apple(6));
         boxWithApple.add(new Apple(2));
 
 
@@ -30,8 +33,8 @@ public class MyApp {
 
 
         try{
-            boxWithApple.layDown();
-            boxWithOrange.layDown();
+            boxWithApple.layDown(new ArrayList<>());
+
         }catch (Exception e){
             System.out.println("Ошибка " + e);
         }

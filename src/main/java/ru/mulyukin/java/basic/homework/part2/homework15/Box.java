@@ -7,14 +7,10 @@ import ru.mulyukin.java.basic.homework.part2.homework15.Fruit;
 
 public class Box<T extends Fruit> {
     private List<T> boxFruit;
-    private List<?> apple;
-    private List<?> orange;
 
 
     public Box(T... boxFruits) {
         this.boxFruit = new ArrayList<>(Arrays.asList(boxFruits));
-        this.apple = new ArrayList<>(Arrays.asList(apple));
-        this.orange = new ArrayList<>(Arrays.asList(orange));
     }
 
     public List<T> getBoxFruit() {
@@ -27,7 +23,7 @@ public class Box<T extends Fruit> {
 
 
     public void add(T fruit) {
-            boxFruit.add(fruit);
+        boxFruit.add(fruit);
     }
 
 
@@ -43,8 +39,10 @@ public class Box<T extends Fruit> {
         return Objects.equals(this.weight(), another.weight());
     }
 
-    public void layDown() {
-        Collections.copy(boxFruit, boxFruit);
-        System.out.println(Arrays.asList(boxFruit));
+    public void layDown(List<T> anotherBox) {
+        anotherBox = new ArrayList<>(Collections.nCopies(boxFruit.size(), (T)null)); // Сначала мы заполняем список ссылками-заглушками.
+        Collections.copy(anotherBox, boxFruit);
+        boxFruit.clear();
+        System.out.println(Arrays.asList(anotherBox));
     }
 }
