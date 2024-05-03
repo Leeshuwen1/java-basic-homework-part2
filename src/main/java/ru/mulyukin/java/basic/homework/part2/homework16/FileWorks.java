@@ -61,12 +61,12 @@ public class FileWorks {
             byte[] buffer = fileInputStream.readAllBytes();
             String data = new String(buffer, StandardCharsets.UTF_8);
             String[] str = data.split(" ");
-            System.out.println(Arrays.asList(str));
             int sum = 0;
             for (String elem : str) {
-                if (word.equals(elem)) {
+                if (elem.equals(word)) {
+                    sum ++;
                 }
-                sum++;
+
             }
             System.out.println("количество повторений слова " + " = " + sum);
         } catch (IOException e) {
