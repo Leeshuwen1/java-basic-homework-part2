@@ -11,7 +11,7 @@ public class MainApplycation {
         fileWorks.searchFile();
         fileWorks.readFile(scanner.nextLine());
         System.out.println();
-        fileWorks.searchWord(scanner.nextLine(), scanner.nextLine());
+        fileWorks.sumWord(scanner.nextLine(), scanner.nextLine());
     }
 }
 

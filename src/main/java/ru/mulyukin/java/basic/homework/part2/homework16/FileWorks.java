@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
+
 public class FileWorks {
     private byte[] buffer = new byte[128];
 
@@ -31,25 +32,48 @@ public class FileWorks {
     public void searchWord(String fileName, String word) {
         try (FileInputStream fis = new FileInputStream(fileName)) {
             int str;
+            int sum = 0;
             while ((str = fis.read(buffer)) != -1) {
-                String[] lines = new String(buffer, 0, str, StandardCharsets.UTF_8).split("\n");
-                int i = 0;
+                String[] lines = new String(buffer, 0, str, StandardCharsets.UTF_8).split(" \n");
+                System.out.println(Arrays.asList(lines));
+                int i = 1;
                 for (String line : lines) {
                     String[] words = line.split(" ");
-                    int j = 0;
+                    int j = 1;
                     for (String elem : words) {
                         if (elem.equals(word)) {
                             System.out.println("Найдено в " + i + "-й строке, " + j + "-е слово");
+                            sum += j;
                         }
                         j++;
                     }
                     i++;
                 }
             }
+            System.out.println(sum + " Сумма повтора слов");
         } catch (Exception e) {
             System.out.println("Error " + e.getMessage());
         }
     }
+
+    public void sumWord(String file, String word) {
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            byte[] buffer = fileInputStream.readAllBytes();
+            String data = new String(buffer, StandardCharsets.UTF_8);
+            String[] str = data.split(" ");
+            System.out.println(Arrays.asList(str));
+            int sum = 0;
+            for (String elem : str) {
+                if (word.equals(elem)) {
+                }
+                sum++;
+            }
+            System.out.println("количество повторений слова " + " = " + sum);
+        } catch (IOException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+    }
+
 
     @Override
     public String toString() {
