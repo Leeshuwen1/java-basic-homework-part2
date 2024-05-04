@@ -10,6 +10,7 @@ public class MyApp {
 
         Box<Fruit> boxWithOrange = new Box<>();
         Box<Fruit> boxWithApple = new Box<>();
+        Box<Fruit> boxWithFruit = new Box<>();
 
 
 
@@ -26,14 +27,15 @@ public class MyApp {
             System.out.println("Средний вес коробки с яблоками" + " " + boxWithApple.weight() + " КГ");
         } catch (ArithmeticException e) {
             System.out.println("Арифметическая ошибка");
-            ;
         }
 
-        System.out.println(boxWithOrange.compare(boxWithApple));
+        //  System.out.println(boxWithOrange.compare(boxWithApple));
 
 
         try{
-            boxWithApple.layDown(new ArrayList<>());
+
+            boxWithApple.layDown(boxWithApple.getBoxFruit());
+
 
         }catch (Exception e){
             System.out.println("Ошибка " + e);

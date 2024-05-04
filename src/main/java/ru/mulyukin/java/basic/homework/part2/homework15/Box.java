@@ -39,10 +39,13 @@ public class Box<T extends Fruit> {
         return Objects.equals(this.weight(), another.weight());
     }
 
-    public void layDown(List<T> anotherBox) {
-        anotherBox = new ArrayList<>(Collections.nCopies(boxFruit.size(), (T)null)); // Сначала мы заполняем список ссылками-заглушками.
-        Collections.copy(anotherBox, boxFruit);
-        boxFruit.clear();
-        System.out.println(Arrays.asList(anotherBox));
+    public void layDown(List<? super T> anotherBox) {
+        if (anotherBox == this && boxFruit == null) {
+            System.out.println("Операцию выполнить невозможно");
+        } else {
+            anotherBox.addAll(boxFruit);
+            boxFruit.clear();
+            System.out.println(Arrays.asList(anotherBox));
+        }
     }
 }
