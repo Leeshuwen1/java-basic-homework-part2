@@ -1,15 +1,13 @@
 package ru.mulyukin.java.basic.homework.part2.homework15;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
-public class Box<T> {
+import java.util.*;
+
+import ru.mulyukin.java.basic.homework.part2.homework15.Fruit;
+
+public class Box<T extends Fruit> {
     private List<T> boxFruit;
-    private Fruit fruit;
-    private Apple apple;
-    private Orange orange;
+
 
     public Box(T... boxFruits) {
         this.boxFruit = new ArrayList<>(Arrays.asList(boxFruits));
@@ -23,44 +21,31 @@ public class Box<T> {
         this.boxFruit = boxFruit;
     }
 
-    public void addOrange(Integer weigth) {
-            boxFruit.add((T) new Orange(weigth));
-    }
 
-    public void addApple(Integer weigth) {
-            boxFruit.add((T) new Apple(weigth));
-    }
-
-    public void addFruits(T weigth) {
-            boxFruit.add(weigth);
+    public void add(T fruit) {
+        boxFruit.add(fruit);
     }
 
 
     public Integer weight() {
         Integer sum = 0;
-        System.out.println(Arrays.asList(boxFruit));
         for (int i = 0; i < boxFruit.size(); i++) {
-            boxFruit.get(sum += i / boxFruit.size());
-            System.out.println(sum);
-
+            sum += boxFruit.get(i).getWeight();
         }
-        System.out.println(sum);
-        return sum;
+        return sum / boxFruit.size();
     }
 
     public boolean compare(Box<?> another) {
-        return this.weight() == another.weight();
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Box<?> box = (Box<?>) o;
-        return Objects.equals(boxFruit, box.boxFruit) && Objects.equals(fruit, box.fruit) && Objects.equals(apple, box.apple) && Objects.equals(orange, box.orange);
+        return Objects.equals(this.weight(), another.weight());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(boxFruit, fruit, apple, orange);
+    public void layDown(List<? super T> anotherBox) {
+        if (anotherBox == this && boxFruit == null) {
+            System.out.println("Операцию выполнить невозможно");
+        } else {
+            anotherBox.addAll(boxFruit);
+            boxFruit.clear();
+            System.out.println(Arrays.asList(anotherBox));
+        }
     }
 }
