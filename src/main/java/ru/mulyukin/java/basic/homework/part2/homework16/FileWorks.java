@@ -66,9 +66,25 @@ public class FileWorks {
                 if (elem.equals(word)) {
                     sum ++;
                 }
-
             }
             System.out.println("количество повторений слова " + " = " + sum);
+        } catch (IOException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+    }
+
+    public void fragment(String file, String word) {
+        try (FileInputStream fileInputStream = new FileInputStream(file)) {
+            byte[] buffer = fileInputStream.readAllBytes();
+            String data = new String(buffer, StandardCharsets.UTF_8);
+            String[] str = data.split(" ");
+            int sum = 0;
+            for (String elem : str) {
+                if (elem.contains(word)) {
+                    sum ++;
+                }
+            }
+            System.out.println("количество фрагментов " + " = " + sum);
         } catch (IOException e) {
             System.out.println("Error " + e.getMessage());
         }
