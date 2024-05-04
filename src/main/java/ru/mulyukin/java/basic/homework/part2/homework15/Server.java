@@ -3,7 +3,7 @@ package ru.mulyukin.java.basic.homework.part2.homework15;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
+
 
 public class Server {
     public static void main(String[] args) throws IOException {
@@ -12,23 +12,23 @@ public class Server {
         while (true) {
             Socket clientSocket = serverSocket.accept();
 
-            BufferedInputStream inputStream = new BufferedInputStream(new DataInputStream(clientSocket.getInputStream()));
+            DataInputStream  inputStream = new DataInputStream((clientSocket.getInputStream()));
 
 
 
-            BufferedOutputStream outputStream = new BufferedOutputStream(new DataOutputStream(clientSocket.getOutputStream()));
+            DataOutputStream outputStream = new DataOutputStream(clientSocket.getOutputStream());
 
 
 
-            char clientRequest = (char) inputStream.read();
+            char clientRequest = inputStream.readChar();
             System.out.println(clientRequest);
-            int clientInt = inputStream.read();
+            int clientInt = inputStream.readInt();
             System.out.println(clientInt);
-            int secondInt = inputStream.read();
+            int secondInt = inputStream.readInt();
             System.out.println(secondInt);
             int result = calculatorApp.calculator(clientRequest, clientInt, secondInt);
             System.out.println(result);
-            outputStream.write(result);
+            outputStream.writeInt(result);
             outputStream.flush();
         }
     }
