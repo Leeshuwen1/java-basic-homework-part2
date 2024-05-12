@@ -16,7 +16,7 @@ public class Letters {
         System.out.print(letter);
     }
     public void therdLetter() {
-        counter--;
+        counter++;
         String letter = "C";
         System.out.print(letter);
     }
