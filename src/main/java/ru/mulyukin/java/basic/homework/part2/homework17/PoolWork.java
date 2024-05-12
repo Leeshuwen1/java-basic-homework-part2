@@ -1,19 +1,20 @@
 package ru.mulyukin.java.basic.homework.part2.homework17;
 
-public class PoolWork {
+public class PoolWork extends Thread{
     Letters letters = new Letters();
     Object monitor = new Object();
+
 
 
     public synchronized void first() {
         synchronized (monitor) {
             try {
                 for (int i = 0; i < 5; i++) {
-                    if (letters.equals(1)) {
+                    while (letters.counter != 0) {
                         monitor.wait();
                     }
                     letters.firstLetter();
-                    monitor.notifyAll();
+                    monitor.notify();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -26,11 +27,11 @@ public class PoolWork {
             try {
 
                 for (int i = 0; i < 5; i++) {
-                    while ((letters.equals(2))) {
+                    while ((letters.counter != 1)) {
                         monitor.wait();
                     }
                     letters.secondLetter();
-                    monitor.notifyAll();
+                    monitor.notify();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -43,16 +44,21 @@ public class PoolWork {
             try {
 
                 for (int i = 0; i < 5; i++) {
-                    while ((letters.equals(3))) {
+                    while (letters.counter != 0) {
                         monitor.wait();
                     }
                     letters.therdLetter();
-                    monitor.notifyAll();
+                    monitor.notify();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void run() {
+        super.run();
     }
 }
 
