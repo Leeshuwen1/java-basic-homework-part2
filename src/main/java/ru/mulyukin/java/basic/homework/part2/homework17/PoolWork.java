@@ -6,7 +6,7 @@ public class PoolWork extends Thread{
 
 
 
-    public synchronized void first() {
+    public void first() {
         synchronized (monitor) {
             try {
                 for (int i = 0; i < 5; i++) {
@@ -22,7 +22,7 @@ public class PoolWork extends Thread{
         }
     }
 
-    public void second() {
+    public  void second() {
         synchronized (monitor) {
             try {
 
@@ -31,7 +31,7 @@ public class PoolWork extends Thread{
                         monitor.wait();
                     }
                     letters.secondLetter();
-                    monitor.notify();
+                   monitor.notify();
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();

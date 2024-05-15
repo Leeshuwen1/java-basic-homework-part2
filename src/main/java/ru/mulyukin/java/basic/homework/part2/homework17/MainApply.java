@@ -10,18 +10,10 @@ public class MainApply {
     public static void main(String[] args) {
         PoolWork poolWork = new PoolWork();
         ExecutorService serv = Executors.newCachedThreadPool();
-        for (int i = 0; i < 5; i++) {
-            serv.execute(() -> {
-                new Thread(() -> {
-                    poolWork.first();
-                }).start();
-                new Thread(() -> {
-                    poolWork.second();
-                }).start();
-                new Thread(() -> {
-                    poolWork.therd();
-                }).start();
-            });
+        for (int i = 0; i < 1; i++) {
+            serv.execute(poolWork::first);
+            serv.execute(poolWork::second);
+            serv.execute(poolWork::therd);
         }
         serv.shutdown();
     }
